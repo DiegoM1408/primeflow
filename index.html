@@ -26,30 +26,14 @@
         }
 
         .welcome-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 60px 40px;
+            background: white;
+            padding: 40px;
             border-radius: 25px;
             margin-bottom: 60px;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
             animation: welcomeFadeIn 1.2s ease;
-        }
-
-        .welcome-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotateGradient 20s linear infinite;
-        }
-
-        @keyframes rotateGradient {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         @keyframes welcomeFadeIn {
@@ -78,61 +62,35 @@
             flex: 1;
         }
 
-        .logo-icon {
-            width: 80px;
-            height: 80px;
-            background: white;
+        .logo-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
             border-radius: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: #667eea;
-            font-size: 40px;
-            animation: pulse 2s infinite, float 3s ease-in-out infinite;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            min-width: 300px;
+            text-align: center;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .logo-image {
+            height: 70px;
         }
 
-        .welcome-text {
-            color: white;
-        }
-
-        .welcome-text h1 {
-            font-size: 56px;
+        .logo-text {
+            color: #1e3a8a;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.3;
             margin: 0;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            animation: slideInLeft 1s ease;
-        }
-
-        .welcome-text p {
-            font-size: 24px;
-            margin: 10px 0 0 0;
-            opacity: 0.95;
-            font-weight: 300;
-            font-style: italic;
-            animation: slideInLeft 1.2s ease;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         .welcome-cta {
@@ -151,17 +109,17 @@
         }
 
         .welcome-cta .cta-button {
-            background: white;
-            color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 18px 40px;
             font-size: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
             transition: all 0.3s ease;
         }
 
         .welcome-cta .cta-button:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
         }
 
         .cta-button {
@@ -652,20 +610,37 @@
             .welcome-left {
                 flex-direction: column;
                 text-align: center;
+                width: 100%;
             }
 
-            .welcome-text h1 {
-                font-size: 36px;
+            .logo-card {
+                min-width: auto;
+                width: 100%;
+                padding: 25px 20px;
             }
 
-            .welcome-text p {
-                font-size: 18px;
-            }
-
-            .logo-icon {
-                width: 60px;
+            .logo-image {
                 height: 60px;
-                font-size: 30px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .welcome-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            .welcome-cta .cta-button {
+                width: 100%;
+                padding: 15px 20px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+                gap: 40px;
             }
 
             .hero-content h1 {
@@ -676,8 +651,32 @@
                 font-size: 18px;
             }
 
+            .section {
+                padding: 40px 20px;
+            }
+
             .section h2 {
                 font-size: 28px;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .timeline::before {
@@ -707,6 +706,28 @@
                 font-size: 12px;
             }
         }
+
+        @media (max-width: 480px) {
+            .welcome-container {
+                padding: 30px 20px;
+            }
+
+            .logo-card {
+                padding: 20px 15px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -715,10 +736,9 @@
         <div class="welcome-container">
             <div class="welcome-content">
                 <div class="welcome-left">
-                    <div class="logo-icon">⚡</div>
-                    <div class="welcome-text">
-                        <h1>PrimeFlow</h1>
-                        <p>Camina seguro en recursos humanos</p>
+                    <div class="logo-card">
+                        <img src="logo.png" alt="PrimeFlow" class="logo-image">
+                        <div class="logo-text">Camina seguro en recursos humanos</div>
                     </div>
                 </div>
                 <div class="welcome-cta">
@@ -727,6 +747,7 @@
             </div>
         </div>
 
+        <!-- Resto del contenido se mantiene igual -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Transforma tu Gestión de Talento Humano</h1>
@@ -735,7 +756,6 @@
                 <a href="https://wa.me/573212909650?text=Hola,%20quiero%20solicitar%20una%20demostración%20de%20PrimeFlow" target="_blank" class="cta-button">SOLICITAR DEMOSTRACIÓN</a>
             </div>
             <div class="hero-image">
-                <!-- Reemplaza el src con la ruta de tu imagen: baner-2-1280x720.webp -->
                 <img src="elegant.jpg" alt="PrimeFlow - Inteligencia Artificial" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 600%27%3E%3Cdefs%3E%3ClinearGradient id=%27bg%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23667eea%27/%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23764ba2%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23bg)%27 width=%27800%27 height=%27600%27/%3E%3Ctext x=%27400%27 y=%27280%27 font-family=%27Arial%27 font-size=%2764%27 fill=%27white%27 text-anchor=%27middle%27 font-weight=%27bold%27%3EPrimeFlow%3C/text%3E%3Ctext x=%27400%27 y=%27330%27 font-family=%27Arial%27 font-size=%2724%27 fill=%27white%27 text-anchor=%27middle%27 opacity=%270.8%27%3EInteligencia Artificial%3C/text%3E%3C/svg%3E'">
             </div>
         </section>
@@ -815,7 +835,6 @@
                     </ul>
                 </div>
                 <div class="results-image">
-                    <!-- Reemplaza el src con la ruta de tu imagen: Resultado.webp -->
                     <img src="1724014021372.jpeg" alt="Resultados Comprobados" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 500%27%3E%3Cdefs%3E%3ClinearGradient id=%27bg2%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23667eea%27/%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23764ba2%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23bg2)%27 width=%27800%27 height=%27500%27/%3E%3Ctext x=%27400%27 y=%27230%27 font-family=%27Arial%27 font-size=%2748%27 fill=%27white%27 text-anchor=%27middle%27 font-weight=%27bold%27%3EÉxito Garantizado%3C/text%3E%3Ctext x=%27400%27 y=%27280%27 font-family=%27Arial%27 font-size=%2724%27 fill=%27white%27 text-anchor=%27middle%27 opacity=%270.8%27%3EResultados Comprobados%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
@@ -851,6 +870,7 @@
         </footer>
     </div>
 
+    <!-- Los modales y JavaScript se mantienen igual -->
     <!-- Modal Beneficios -->
     <div id="benefitsModal" class="modal">
         <div class="modal-content">
