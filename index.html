@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeFlow - Camina Seguro en Recursos Humanos</title>
+    <title>PrimeFlow - Transforma tu Gestión con IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a6fd8;
+            --secondary: #764ba2;
+            --dark: #2d3748;
+            --gray: #4a5568;
+            --light-gray: #f7fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-radius: 12px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,9 +27,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -22,261 +36,329 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 24px;
         }
 
-        .welcome-container {
-            background: white;
-            padding: 40px;
-            border-radius: 25px;
-            margin-bottom: 60px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            animation: welcomeFadeIn 1.2s ease;
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
         }
 
-        @keyframes welcomeFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .welcome-content {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 1;
+            padding: 18px 0;
         }
 
-        .welcome-left {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            flex: 1;
+        /* Estilos para el logo */
+        .logo-img {
+            height: 42px;
+            width: auto;
+            transition: var(--transition);
         }
 
-        .logo-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 25px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            min-width: 300px;
-            text-align: center;
+        .footer-logo-img {
+            height: 36px;
         }
 
-        .logo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .logo-image {
-            height: 70px;
+        /* Ajustes responsive para el logo */
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 36px;
+            }
+            
+            .footer-logo-img {
+                height: 32px;
+            }
         }
 
         .logo-text {
-            color: #1e3a8a;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 1.3;
-            margin: 0;
-        }
-
-        .welcome-cta {
-            animation: slideInRight 1s ease;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .welcome-cta .cta-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px 40px;
-            font-size: 16px;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .welcome-cta .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 80px;
-            background: white;
-            padding: 60px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            color: #2d3748;
-            margin-bottom: 15px;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-weight: 700;
+            font-size: 24px;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero-subtitle {
-            font-size: 24px;
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-weight: 300;
-            font-style: italic;
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 16px;
+        }
+
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3e8f5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            line-height: 1.15;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
         }
 
         .hero-content p {
-            font-size: 16px;
-            color: #4a5568;
-            margin-bottom: 30px;
+            font-size: 20px;
+            color: var(--gray);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .hero-image {
             position: relative;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
         }
 
-        .section {
-            background: white;
-            padding: 60px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        .trusted-by {
+            padding: 60px 0;
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .section h2 {
+        .trusted-by p {
             text-align: center;
-            font-size: 36px;
-            color: #2d3748;
+            color: var(--gray);
+            margin-bottom: 32px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .trusted-logo {
+            padding: 12px 24px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            color: var(--gray);
+            font-weight: 600;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .trusted-logo:hover {
+            opacity: 1;
+            background: #edf2f7;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 70px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            color: var(--dark);
             margin-bottom: 20px;
+            font-weight: 800;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #4a5568;
-            margin-bottom: 50px;
-            font-size: 18px;
+        .section-header p {
+            font-size: 19px;
+            color: var(--gray);
+            line-height: 1.7;
         }
 
-        .benefits {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
 
-        .benefit-card {
+        .feature-card {
+            background: var(--white);
+            padding: 42px 32px;
+            border-radius: 16px;
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
 
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+            border-color: var(--primary);
         }
 
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 24px;
+            background: var(--gradient);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 32px;
+            font-size: 38px;
         }
 
-        .benefit-card h3 {
-            font-size: 16px;
-            color: #2d3748;
-            margin-bottom: 10px;
+        .feature-card h3 {
+            font-size: 22px;
+            color: var(--dark);
+            margin-bottom: 16px;
+            font-weight: 700;
         }
 
-        .benefit-card p {
-            font-size: 13px;
-            color: #4a5568;
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.7;
         }
 
         .process {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .process-steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin: 50px 0;
+            gap: 48px;
+            margin-top: 60px;
         }
 
         .process-step {
@@ -284,32 +366,52 @@
             position: relative;
         }
 
-        .process-number {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .process-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            top: 45px;
+            right: -24px;
+            font-size: 32px;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 24px;
+            background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             font-size: 36px;
             font-weight: bold;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
         }
 
         .process-step h3 {
             font-size: 24px;
-            color: #2d3748;
-            margin-bottom: 15px;
+            color: var(--dark);
+            margin-bottom: 16px;
+            font-weight: 700;
         }
 
-        .results-grid {
+        .process-step p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .results {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .results-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
         }
 
@@ -318,513 +420,692 @@
         }
 
         .results-list li {
-            padding: 15px 0;
-            padding-left: 35px;
+            padding: 18px 0;
+            padding-left: 40px;
             position: relative;
-            font-size: 16px;
-            color: #2d3748;
+            font-size: 17px;
+            color: var(--dark);
+            line-height: 1.6;
         }
 
-        .results-list li:before {
+        .results-list li::before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--primary);
             font-weight: bold;
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .results-image {
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
 
         .results-image img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 50px;
+            gap: 32px;
+            margin-top: 60px;
         }
 
         .stat-card {
             text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
-            border-radius: 15px;
-            transition: all 0.3s ease;
+            padding: 40px 32px;
+            background: var(--light-gray);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         .stat-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 24px;
+            font-size: 28px;
         }
 
         .stat-card h4 {
             font-size: 14px;
-            color: #4a5568;
-            margin-bottom: 10px;
+            color: var(--gray);
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .stat-card p {
-            font-size: 32px;
+            font-size: 38px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonials {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 36px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 70px;
+            color: var(--primary);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-content {
+            margin-bottom: 24px;
+            font-style: italic;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
             font-weight: bold;
-            color: #667eea;
+            font-size: 18px;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            color: var(--dark);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .pricing {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 2px solid #e2e8f0;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Más Popular';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: bold;
+            border-bottom-left-radius: 12px;
+        }
+
+        .pricing-header {
+            padding: 40px 32px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3e8f5 100%);
+        }
+
+        .pricing-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .pricing-price {
+            font-size: 44px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .pricing-period {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .pricing-features {
+            padding: 36px 32px;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            position: relative;
+            padding-left: 32px;
+            color: var(--dark);
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .pricing-footer {
+            padding: 0 32px 36px;
+            text-align: center;
+        }
+
+        .faq {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 24px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question span {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .faq-answer {
+            color: var(--gray);
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
         }
 
         .final-cta {
+            padding: 100px 0;
+            background: var(--gradient);
+            color: var(--white);
             text-align: center;
-            padding: 80px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            color: white;
-            margin-top: 60px;
-        }
-
-        .final-cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .final-cta p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .final-cta .cta-button {
-            background: white;
-            color: #667eea;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: white;
-            margin: 5% auto;
-            padding: 0;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 900px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: slideIn 0.4s ease;
+            position: relative;
             overflow: hidden;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            position: relative;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            color: white;
-        }
-
-        .close {
-            color: white;
-            float: right;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-            transition: all 0.3s ease;
-        }
-
-        .close:hover {
-            transform: scale(1.1);
-        }
-
-        .modal-body {
-            padding: 40px;
-        }
-
-        .benefits-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-
-        .benefits-table th,
-        .benefits-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .benefits-table th {
-            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .benefits-table tr:hover {
-            background: #f6f8fb;
-        }
-
-        .chart-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: #f6f8fb;
-            border-radius: 15px;
-        }
-
-        .chart-bar {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-        }
-
-        .chart-label {
-            width: 150px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .chart-bar-fill {
-            height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 5px;
-            transition: width 1s ease;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 30px 0;
-        }
-
-        .timeline::before {
+        .final-cta::before {
             content: '';
             position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
         }
 
-        .timeline-item {
+        .final-cta .container {
             position: relative;
-            margin: 40px 0;
+        }
+
+        .final-cta h2 {
+            font-size: 44px;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 36px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .final-cta .btn {
+            background: var(--white);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .final-cta .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo-section {
+            max-width: 500px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient);
+            border-radius: 8px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
 
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
+        .footer-logo span {
+            font-weight: 700;
+            font-size: 20px;
         }
 
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
+        .footer-about p {
+            color: #a0aec0;
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
-        .timeline-content {
-            width: 45%;
-            padding: 25px;
-            background: #f6f8fb;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
         }
 
-        .timeline-content h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: white;
-            border: 4px solid #667eea;
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            z-index: 1;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 32px;
+            text-align: center;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-container,
+            .results-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-image {
+                transform: none;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .welcome-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .welcome-left {
-                flex-direction: column;
-                text-align: center;
-                width: 100%;
-            }
-
-            .logo-card {
-                min-width: auto;
-                width: 100%;
-                padding: 25px 20px;
-            }
-
-            .logo-image {
-                height: 60px;
-            }
-
-            .logo-text {
-                font-size: 16px;
-            }
-
-            .welcome-cta {
-                width: 100%;
-                text-align: center;
-            }
-
-            .welcome-cta .cta-button {
-                width: 100%;
-                padding: 15px 20px;
+            .nav-menu {
+                display: none;
             }
 
             .hero {
-                grid-template-columns: 1fr;
-                padding: 40px 20px;
-                gap: 40px;
+                padding: 140px 0 70px;
             }
 
             .hero-content h1 {
-                font-size: 32px;
+                font-size: 38px;
             }
 
-            .hero-subtitle {
-                font-size: 18px;
+            .hero-content p {
+                font-size: 17px;
             }
 
-            .section {
-                padding: 40px 20px;
-            }
-
-            .section h2 {
-                font-size: 28px;
-            }
-
-            .benefits {
+            .features-grid,
+            .testimonials-grid,
+            .pricing-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .process {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .pricing-card.featured {
+                transform: none;
             }
 
             .stats {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .timeline::before {
-                left: 20px;
+            .section-header h2 {
+                font-size: 32px;
             }
 
-            .timeline-item {
-                flex-direction: row !important;
-            }
-
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 40px;
-            }
-
-            .timeline-dot {
-                left: 20px;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-            }
-
-            .chart-label {
-                width: 100px;
-                font-size: 12px;
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 480px) {
-            .welcome-container {
-                padding: 30px 20px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
             }
-
-            .logo-card {
-                padding: 20px 15px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            .logo-text {
-                font-size: 16px;
-            }
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease forwards;
+        }
 
-            .hero-content h1 {
-                font-size: 28px;
-            }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
 
-            .section h2 {
-                font-size: 24px;
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Welcome Container -->
-        <div class="welcome-container">
-            <div class="welcome-content">
-                <div class="welcome-left">
-                    <div class="logo-card">
-                        <img src="logo.png" alt="PrimeFlow" class="logo-image">
-                        <div class="logo-text">Camina seguro en recursos humanos</div>
-                    </div>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="PrimeFlow" class="logo-img">
+            </div>
+            <nav class="nav-menu">
+                <a href="#features">Características</a>
+                <a href="#process">Cómo funciona</a>
+                <a href="#results">Resultados</a>
+                <a href="#testimonials">Testimonios</a>
+            </nav>
+            <div class="header-cta">
+                <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=-oQtqRAzrEiHJtWByrlARFPs5RGFaPlBtlFazCBSr1tUN1AzR080OVZDWlFEUzVEUlE0UUNOWU5GSS4u" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-user-plus"></i> Te Queremos Conocer
+                </a>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Transforma tu Gestión con IA</h1>
+                <p>Optimiza tu departamento de Recursos Humanos con la primera plataforma de IA específicamente diseñada para equipos de RRHH, ahorrando un 70% del tiempo en tareas administrativas.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/573212909650?text=Hola,%20quiero%20solicitar%20una%20demostración%20de%20PrimeFlow" target="_blank" class="btn btn-primary btn-large">
+                        <i class="fab fa-whatsapp"></i> SOLICITAR DEMOSTRACIÓN
+                    </a>
+                    <a href="PLT.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-info-circle"></i> Conoce la plataforma
+                    </a>
                 </div>
-                <div class="welcome-cta">
-                    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=-oQtqRAzrEiHJtWByrlARFPs5RGFaPlBtlFazCBSr1tUN1AzR080OVZDWlFEUzVEUlE0UUNOWU5GSS4u" target="_blank" class="cta-button">Te Queremos Conocer Prime Flow</a>
+            </div>
+            <div class="hero-image">
+                <img src="elegant.jpg" alt="PrimeFlow IA" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 600%27%3E%3Cdefs%3E%3ClinearGradient id=%27bg%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23667eea%27/%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23764ba2%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23bg)%27 width=%27800%27 height=%27600%27/%3E%3Ctext x=%27400%27 y=%27280%27 font-family=%27Arial%27 font-size=%2764%27 fill=%27white%27 text-anchor=%27middle%27 font-weight=%27bold%27%3EPrimeFlow%3C/text%3E%3Ctext x=%27400%27 y=%27330%27 font-family=%27Arial%27 font-size=%2724%27 fill=%27white%27 text-anchor=%27middle%27 opacity=%270.8%27%3EInteligencia Artificial%3C/text%3E%3C/svg%3E'">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Qué es Prime Flow?</h2>
+                <p>Un ecosistema completo tipo ERP/CRM con automatización inteligente que revoluciona la gestión y optimización de procesos</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Ahorra tiempo</h3>
+                    <p>Reduce tareas manuales del 70% con automatización inteligente de procesos repetitivos.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Eficiencia sin límites</h3>
+                    <p>Optimiza procesos continuamente con algoritmos de IA que aprenden de tu organización.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">💰</div>
+                    <h3>Controla costos</h3>
+                    <p>Métricas en tiempo real para evaluar retorno de inversión y optimizar recursos.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">📊</div>
+                    <h3>Integración fácil</h3>
+                    <p>Compatible con tus herramientas actuales sin necesidad de migraciones complejas.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Escala cuando creces</h3>
+                    <p>Crece sin límites con una plataforma diseñada para adaptarse a tu evolución.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Seguridad garantizada</h3>
+                    <p>Protección de datos con los más altos estándares de seguridad y cumplimiento normativo.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Resto del contenido se mantiene igual -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Transforma tu Gestión de Talento Humano</h1>
-                <p class="hero-subtitle">Inteligencia Artificial al Servicio de RRHH</p>
-                <p>Optimiza tu departamento de Recursos Humanos con la primera plataforma de IA específicamente diseñada para equipos de RRHH, ahorrando un 70% del tiempo en tareas administrativas.</p>
-                <a href="https://wa.me/573212909650?text=Hola,%20quiero%20solicitar%20una%20demostración%20de%20PrimeFlow" target="_blank" class="cta-button">SOLICITAR DEMOSTRACIÓN</a>
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cómo funciona Prime Flow</h2>
+                <p>Un modelo que aplica IA automatizada para optimizar los equipos de Recursos Humanos</p>
             </div>
-            <div class="hero-image">
-                <img src="elegant.jpg" alt="PrimeFlow - Inteligencia Artificial" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 600%27%3E%3Cdefs%3E%3ClinearGradient id=%27bg%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23667eea%27/%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23764ba2%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23bg)%27 width=%27800%27 height=%27600%27/%3E%3Ctext x=%27400%27 y=%27280%27 font-family=%27Arial%27 font-size=%2764%27 fill=%27white%27 text-anchor=%27middle%27 font-weight=%27bold%27%3EPrimeFlow%3C/text%3E%3Ctext x=%27400%27 y=%27330%27 font-family=%27Arial%27 font-size=%2724%27 fill=%27white%27 text-anchor=%27middle%27 opacity=%270.8%27%3EInteligencia Artificial%3C/text%3E%3C/svg%3E'">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>¿Qué es Prime Flow?</h2>
-            <p class="section-subtitle">Prime Flow es la primera plataforma de inteligencia artificial específicamente diseñada para equipos de Recursos Humanos que automatiza el reclutamiento y facilita la gestión estratégica del talento en tu empresa al tiempo que mejora la cultura laboral</p>
-
-            <h2 style="margin-top: 60px;">Beneficios clave de la automatización inteligente</h2>
-            <div class="benefits">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Ahorra tiempo</h3>
-                    <p>Reduce tareas manuales del 70%</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Eficiencia sin límites</h3>
-                    <p>Optimiza procesos continuamente</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Controla costos y evalúa retorno</h3>
-                    <p>Métricas en tiempo real</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3>Integración fácil</h3>
-                    <p>Compatible con tus herramientas</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🚀</div>
-                    <h3>Escala cuando creces</h3>
-                    <p>Crece sin límites</p>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <button class="cta-button" onclick="openBenefitsModal()">VER TODOS LOS BENEFICIOS</button>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Cómo funciona Prime Flow?</h2>
-            <p class="section-subtitle">Un modelo que aplica IA automatizada para optimizar los equipos de Recursos Humanos</p>
-            
-            <div class="process">
-                <div class="process-step">
-                    <div class="process-number">1</div>
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-number">1</div>
                     <h3>Automatiza</h3>
+                    <p>Identificamos y automatizamos tus procesos manuales más repetitivos.</p>
                 </div>
-                <div class="process-step">
-                    <div class="process-number">2</div>
+                <div class="process-step fade-in-up">
+                    <div class="step-number">2</div>
                     <h3>Integra</h3>
+                    <p>Conectamos todos tus sistemas y herramientas en una plataforma unificada.</p>
                 </div>
-                <div class="process-step">
-                    <div class="process-number">3</div>
+                <div class="process-step fade-in-up">
+                    <div class="step-number">3</div>
                     <h3>Optimiza</h3>
+                    <p>Mejoramos continuamente tus procesos con análisis predictivo e IA.</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <button class="cta-button" onclick="openProcessModal()">CONOCER EL PROCESO</button>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <h2>Resultados que transforman la gestión humana</h2>
-            <p class="section-subtitle">Únete a más de 500 empresas que mejoran Prime Flow su gestión</p>
-            
-            <div class="results-grid">
+    <section id="results" class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>Resultados que transforman la gestión humana</h2>
+                <p>Únete a más de 500 empresas que mejoran con Prime Flow su gestión</p>
+            </div>
+            <div class="results-container">
                 <div>
                     <ul class="results-list">
                         <li>85% de reducción en tiempo de contratación</li>
@@ -838,296 +1119,236 @@
                     <img src="1724014021372.jpeg" alt="Resultados Comprobados" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 500%27%3E%3Cdefs%3E%3ClinearGradient id=%27bg2%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23667eea%27/%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23764ba2%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23bg2)%27 width=%27800%27 height=%27500%27/%3E%3Ctext x=%27400%27 y=%27230%27 font-family=%27Arial%27 font-size=%2748%27 fill=%27white%27 text-anchor=%27middle%27 font-weight=%27bold%27%3EÉxito Garantizado%3C/text%3E%3Ctext x=%27400%27 y=%27280%27 font-family=%27Arial%27 font-size=%2724%27 fill=%27white%27 text-anchor=%27middle%27 opacity=%270.8%27%3EResultados Comprobados%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
-
             <div class="stats">
-                <div class="stat-card">
+                <div class="stat-card fade-in-up">
                     <div class="stat-icon">📈</div>
                     <h4>Empresas impactadas con soluciones eficientes</h4>
                     <p>500+</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card fade-in-up">
                     <div class="stat-icon">⏱️</div>
                     <h4>Tiempo ahorrado en reclutamiento</h4>
                     <p>70%</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card fade-in-up">
                     <div class="stat-icon">😊</div>
                     <h4>Nivel de satisfacción de usuarios</h4>
                     <p>92%</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="final-cta">
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Descubre cómo PrimeFlow ha transformado la gestión de RRHH en empresas como la tuya</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-content">
+                        "PrimeFlow ha revolucionado nuestro proceso de contratación. Lo que antes nos tomaba semanas ahora lo hacemos en días, con una precisión increíble."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-info">
+                            <h4>María Cortés</h4>
+                            <p>Directora de RRHH, Empresa X</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-content">
+                        "La automatización de procesos nos ha permitido enfocarnos en lo estratégico. Nuestro equipo es 70% más productivo gracias a PrimeFlow."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JG</div>
+                        <div class="author-info">
+                            <h4>Juan Gómez</h4>
+                            <p>Gerente de Talento, Empresa Y</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-content">
+                        "La integración fue sencilla y el soporte excelente. En menos de 3 meses ya estábamos viendo resultados tangibles en nuestros indicadores."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AP</div>
+                        <div class="author-info">
+                            <h4>Ana Pérez</h4>
+                            <p>CEO, Empresa Z</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preguntas frecuentes</h2>
+                <p>Resolvemos tus dudas sobre PrimeFlow</p>
+            </div>
+            <div class="faq-grid">
+                <div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Cuánto tiempo toma implementar PrimeFlow?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            La implementación promedio toma entre 2 y 4 semanas, dependiendo del tamaño de tu empresa y la complejidad de tus procesos actuales.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Es compatible con nuestros sistemas actuales?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Sí, PrimeFlow se integra con la mayoría de sistemas de nómina, ERP y herramientas de RRHH mediante API.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Qué tipo de soporte ofrecen?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Ofrecemos soporte por email, chat y teléfono según tu plan. También proporcionamos capacitación inicial y documentación completa.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Puedo cambiar de plan en cualquier momento?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Sí, puedes cambiar entre planes en cualquier momento. Los cambios se reflejarán en tu próxima facturación.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Ofrecen prueba gratuita?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Sí, ofrecemos una prueba gratuita de 14 días para que puedas evaluar todas las funcionalidades de PrimeFlow.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Cómo garantizan la seguridad de nuestros datos?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Utilizamos encriptación de grado bancario, cumplimos con las normativas de protección de datos y realizamos copias de seguridad regulares.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
             <h2>¿Listo para transformar tu empresa?</h2>
-            <p>¿Estás listo para transformar tu gestión de RRHH con inteligencia artificial?</p>
-            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=-oQtqRAzrEiHJtWByrlARFPs5RGFaPlBtlFazCBSr1tUN1AzR080OVZDWlFEUzVEUlE0UUNOWU5GSS4u" target="_blank" class="cta-button">SOLICITAR ASESORÍA</a>
-        </section>
+            <p>Únete a las más de 500 empresas que ya están optimizando su gestión de RRHH con PrimeFlow</p>
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=-oQtqRAzrEiHJtWByrlARFPs5RGFaPlBtlFazCBSr1tUN1AzR080OVZDWlFEUzVEUlE0UUNOWU5GSS4u" target="_blank" class="btn btn-large">
+                <i class="fas fa-rocket"></i> SOLICITAR ASESORÍA GRATUITA
+            </a>
+        </div>
+    </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: #4a5568;">
-            <p>PrimeFlow © 2025</p>
-            <p style="font-size: 12px; margin-top: 10px;">www.primeflow.com</p>
-        </footer>
-    </div>
-
-    <!-- Los modales y JavaScript se mantienen igual -->
-    <!-- Modal Beneficios -->
-    <div id="benefitsModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close" onclick="closeBenefitsModal()">&times;</span>
-                <h2>Análisis de Beneficios vs Costos</h2>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="PrimeFlow" class="footer-logo-img">
+                    </div>
+                    <p>Transformamos la gestión de Recursos Humanos con inteligencia artificial, automatización y análisis predictivo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <table class="benefits-table">
-                    <thead>
-                        <tr>
-                            <th>Beneficio</th>
-                            <th>Ahorro Anual</th>
-                            <th>ROI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Reducción de tiempo de contratación</td>
-                            <td>$45,000</td>
-                            <td>350%</td>
-                        </tr>
-                        <tr>
-                            <td>Automatización de procesos administrativos</td>
-                            <td>$38,000</td>
-                            <td>280%</td>
-                        </tr>
-                        <tr>
-                            <td>Mejora en retención de talento</td>
-                            <td>$62,000</td>
-                            <td>420%</td>
-                        </tr>
-                        <tr>
-                            <td>Optimización de recursos</td>
-                            <td>$28,000</td>
-                            <td>220%</td>
-                        </tr>
-                        <tr>
-                            <td>Reducción de errores manuales</td>
-                            <td>$18,000</td>
-                            <td>180%</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="chart-container">
-                    <h3 style="margin-bottom: 20px; color: #2d3748;">Retorno de Inversión (ROI)</h3>
-                    <div class="chart-bar">
-                        <div class="chart-label">Retención</div>
-                        <div class="chart-bar-fill" style="width: 84%;">420%</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-label">Contratación</div>
-                        <div class="chart-bar-fill" style="width: 70%;">350%</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-label">Automatización</div>
-                        <div class="chart-bar-fill" style="width: 56%;">280%</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-label">Optimización</div>
-                        <div class="chart-bar-fill" style="width: 44%;">220%</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-label">Reducción Errores</div>
-                        <div class="chart-bar-fill" style="width: 36%;">180%</div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://wa.me/573212909650?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20los%20beneficios%20de%20PrimeFlow" target="_blank" class="cta-button">SOLICITAR ASESORÍA PERSONALIZADA</a>
-                </div>
+            <div class="footer-bottom">
+                <p>PrimeFlow © 2025 - Todos los derechos reservados | Política de Privacidad | Términos de Servicio</p>
             </div>
         </div>
-    </div>
-
-    <!-- Modal Proceso -->
-    <div id="processModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close" onclick="closeProcessModal()">&times;</span>
-                <h2>Proceso de Implementación PrimeFlow</h2>
-            </div>
-            <div class="modal-body">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Fase 1: Análisis y Diagnóstico</h3>
-                            <p>Evaluamos tus necesidades actuales, identificamos áreas de mejora y diseñamos una estrategia personalizada para tu organización.</p>
-                            <p style="margin-top: 10px; color: #667eea; font-weight: 600;">Duración: 1-2 semanas</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Fase 2: Configuración e Integración</h3>
-                            <p>Configuramos la plataforma según tus requerimientos e integramos con tus sistemas existentes (ATS, ERP, nómina).</p>
-                            <p style="margin-top: 10px; color: #667eea; font-weight: 600;">Duración: 2-3 semanas</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Fase 3: Capacitación del Equipo</h3>
-                            <p>Entrenamos a tu equipo de RRHH en el uso efectivo de la plataforma con sesiones prácticas y materiales de apoyo.</p>
-                            <p style="margin-top: 10px; color: #667eea; font-weight: 600;">Duración: 1 semana</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Fase 4: Lanzamiento Piloto</h3>
-                            <p>Implementamos un programa piloto con un grupo seleccionado para validar funcionamiento y realizar ajustes necesarios.</p>
-                            <p style="margin-top: 10px; color: #667eea; font-weight: 600;">Duración: 2-4 semanas</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Fase 5: Despliegue Completo</h3>
-                            <p>Extendemos la plataforma a toda la organización con monitoreo continuo y optimización de procesos.</p>
-                            <p style="margin-top: 10px; color: #667eea; font-weight: 600;">Duración: 1-2 semanas</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Fase 6: Soporte y Optimización Continua</h3>
-                            <p>Brindamos soporte técnico 24/7, actualizaciones constantes y análisis de métricas para mejora continua.</p>
-                            <p style="margin-top: 10px; color: #667eea; font-weight: 600;">Duración: Permanente</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center;">
-                    <h3 style="color: #2d3748; margin-bottom: 15px;">Tiempo Total de Implementación</h3>
-                    <p style="font-size: 48px; font-weight: bold; color: #667eea; margin: 20px 0;">8-12 Semanas</p>
-                    <p style="color: #4a5568;">Desde el análisis inicial hasta el despliegue completo</p>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://wa.me/573212909650?text=Hola,%20quiero%20conocer%20más%20sobre%20el%20proceso%20de%20implementación%20de%20PrimeFlow" target="_blank" class="cta-button">INICIAR MI PROCESO AHORA</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </footer>
 
     <script>
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Add animation on scroll
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in-up');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.benefit-card, .process-step, .stat-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
+        document.querySelectorAll('.feature-card, .process-step, .stat-card, .testimonial-card, .pricing-card').forEach(el => {
             observer.observe(el);
         });
 
-        // Modal Functions
-        function openBenefitsModal() {
-            document.getElementById('benefitsModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            animateChartBars();
-        }
-
-        function closeBenefitsModal() {
-            document.getElementById('benefitsModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function openProcessModal() {
-            document.getElementById('processModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            animateTimeline();
-        }
-
-        function closeProcessModal() {
-            document.getElementById('processModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const benefitsModal = document.getElementById('benefitsModal');
-            const processModal = document.getElementById('processModal');
-            if (event.target == benefitsModal) {
-                closeBenefitsModal();
-            }
-            if (event.target == processModal) {
-                closeProcessModal();
-            }
-        }
-
-        // Animate chart bars
-        function animateChartBars() {
-            const bars = document.querySelectorAll('.chart-bar-fill');
-            bars.forEach((bar, index) => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, index * 200);
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                    faqItem.querySelector('span').textContent = '+';
+                });
+                
+                if (!wasActive) {
+                    item.classList.add('active');
+                    question.querySelector('span').textContent = '−';
+                }
             });
-        }
+        });
 
-        // Animate timeline
-        function animateTimeline() {
-            const items = document.querySelectorAll('.timeline-item');
-            items.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                setTimeout(() => {
-                    item.style.transition = 'all 0.6s ease';
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }, index * 150);
-            });
-        }
-
-        // Close modals with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeBenefitsModal();
-                closeProcessModal();
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 25px rgba(0,0,0,0.12)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
             }
+            
+            lastScroll = currentScroll;
         });
     </script>
 </body>
